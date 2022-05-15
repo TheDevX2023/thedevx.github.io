@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!stealing is not allowed>
+<html>
+    <head> 
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <title>TheDevX Creations</title>
+        <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">        
+        
+    </head>
+    <body>
+        <section class="sub-header">
+        <nav>
+        <a href="index.html"><img src="images/Logo.png"></a>    
+            <div class="nav-links">
+                <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="Contact Us.html">REQUEST</a></li>
+                <li><a href="Packages.html">PACKAGES</a></li>
+                </ul>
+            </div>
+        </nav>
+        </section>
+    </body>
+    <div class="download-container">
+    <a href="#" class="download-bttn">Download Files <i class="fa fa-download"></i></a>
+        <div class="countdown">Download will begin automaticly in <span>0</span> seconds.</div>
+        <div class="pleasewait-message">Please wait...</div>
+        <div class="manulDownload-text">If the download didn’t start automaticly, <a href="" class="ManulDownload-link">click here.</a></div>
+        </div>
+    <script type="text/javascript">
+    const downloadBtn = document.querySelector(".download-bttn");
+    const countdown = document.querySelector(".countdown");
+    const pleaseWaitText = document.querySelector(".pleasewait-message");
+    const manualDownloadText = document.querySelector(".manulDownload-text");
+    const manualDownloadLink = document.querySelector(".ManulDownload-link");
+    var timeLeft = 10;
+
+    downloadBtn.addEventListener("click", () => {
+      downloadBtn.style.display = "none";
+      countdown.innerHTML = "Download will begin automatically in <span>" + timeLeft + "</span> seconds."; //for quick start of countdown
+
+      var downloadTimer = setInterval(function timeCount(){
+        timeLeft -= 1;
+        countdown.innerHTML = "Download will begin automatically in <span>" + timeLeft + "</span> seconds.";
+
+        if(timeLeft <= 0){
+          clearInterval(downloadTimer);
+          pleaseWaitText.style.display = "block";
+          let download_href = "C:/Users/User/Desktop/HTML/files/Funny Edition V1.0.0.zip"; //enter the downloadable file link URL here
+          window.location.href = download_href;
+          manualDownloadLink.href = download_href;
+
+          setTimeout(() => {
+            pleaseWaitText.style.display = "none";
+            manualDownloadText.style.display = "block";
+          }, 4000);
+        }
+      }, 1000);
+    });
+    </script>
+    <div class="Pack-Info">
+     <img src="images/Pack_1.png" height="100" width="100" class="Pack-info-img">
+    <h1 class="File-Name-Question">File Name :</h1>
+    <h1 class="File-Name">Funny Pack</h1>
+    <h1 class="File-Type-Question">File Type :</h1>
+    <h1 class="File-Type">Minecraft Pack<span>(.zip)</span></h1>
+    <h1 class="Size-Value-Question">Size :</h1>
+    <h1 class="Size-Value">6KB</h1>
+    </div>
+</html> 
